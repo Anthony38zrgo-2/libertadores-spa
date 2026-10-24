@@ -1,11 +1,12 @@
 <script setup>
 /**
- * AppHeader — marca, navegación de anclas, CTA y menú móvil accesible.
+ * AppHeader — marca, navegación de anclas, CTA de WhatsApp y menú móvil.
  * El logotipo va sobre una placa blanca para conservar su legibilidad.
  */
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { siteConfig } from "@/config/site.config";
 import { getFirstContentHref, isConfiguredLinkAvailable } from "@/config/sections";
+import { buildWhatsAppUrl } from "@/composables/useContact";
 import { getSiteImage } from "@/data/images";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
 import UiButton from "@/components/ui/UiButton.vue";
@@ -18,9 +19,21 @@ const props = defineProps({
 
 const logo = getSiteImage("logo-libertadores");
 const homeHref = computed(() => getFirstContentHref(siteConfig));
-const visibleAction = computed(() =>
-  props.action && isConfiguredLinkAvailable(props.action.href, siteConfig) ? props.action : null,
+const whatsappHref = computed(() =>
+  buildWhatsAppUrl(siteConfig.site.contact.whatsapp, siteConfig.site.contact.whatsappMessage),
 );
+
+function resolveAction(action) {
+  if (!action) return null;
+  if (action.type === "whatsapp") {
+    if (!whatsappHref.value) return null;
+    return { ...action, href: whatsappHref.value, external: true };
+  }
+  if (!isConfiguredLinkAvailable(action.href, siteConfig)) return null;
+  return { ...action, external: /^https?:\/\//i.test(action.href || "") };
+}
+
+const visibleAction = computed(() => resolveAction(props.action));
 
 const menuOpen = ref(false);
 let desktopQuery = null;
@@ -40,7 +53,7 @@ function handleDesktopChange(event) {
 onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
   if (typeof window.matchMedia === "function") {
-    desktopQuery = window.matchMedia("(min-width: 900px)");
+    desktopQuery = window.matchMedia("(min-width: 1024px)");
     desktopQuery.addEventListener("change", handleDesktopChange);
   }
 });
@@ -77,6 +90,7 @@ onBeforeUnmount(() => {
           :href="visibleAction.href"
           :variant="visibleAction.variant || 'primary'"
           :icon="visibleAction.icon || ''"
+          :external="visibleAction.external"
         />
         <button
           type="button"
@@ -109,6 +123,7 @@ onBeforeUnmount(() => {
           :href="visibleAction.href"
           :variant="visibleAction.variant || 'primary'"
           :icon="visibleAction.icon || ''"
+          :external="visibleAction.external"
           @click="closeMenu"
         />
       </nav>

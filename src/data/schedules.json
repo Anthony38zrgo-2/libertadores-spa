@@ -1,0 +1,36 @@
+[
+  {
+    "id": "turno-2115",
+    "routeId": "lima-ayacucho",
+    "time": "21:15",
+    "displayTime": "9:15 p. m.",
+    "timeZone": "America/Lima",
+    "label": "Turno informado",
+    "status": "confirmed",
+    "source": "cliente",
+    "verifiedAt": "2026-10-23",
+    "departureCity": null,
+    "arrivalCity": null,
+    "operatingDays": null,
+    "boardingPoint": null,
+    "direction": null,
+    "notes": "El horario fue informado por el cliente. No se han confirmado los días, la ciudad de salida, el sentido ni el punto de embarque."
+  },
+  {
+    "id": "turno-2200",
+    "routeId": "lima-ayacucho",
+    "time": "22:00",
+    "displayTime": "10:00 p. m.",
+    "timeZone": "America/Lima",
+    "label": "Turno informado",
+    "status": "confirmed",
+    "source": "cliente",
+    "verifiedAt": "2026-10-23",
+    "departureCity": null,
+    "arrivalCity": null,
+    "operatingDays": null,
+    "boardingPoint": null,
+    "direction": null,
+    "notes": "El horario fue informado por el cliente. No se han confirmado los días, la ciudad de salida, el sentido ni el punto de embarque."
+  }
+]

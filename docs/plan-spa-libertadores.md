@@ -2,6 +2,8 @@
 
 Fecha: 23 de octubre de 2026. Estado: primera versión implementada y verificada localmente; publicación pendiente de las confirmaciones de contenido.
 
+> **Actualización 2026-10-23:** el alcance vigente es la SPA orientada al pasajero con WhatsApp confirmado, turnos informados y secciones de destinos, servicios, agencias, nosotros, preguntas frecuentes y contacto. Las referencias históricas a “tres bloques” o a la ausencia de WhatsApp quedan superadas por esta ampliación.
+
 ## Objetivo y alcance
 
 Crear en `D:\web\libertadores-spa` una SPA institucional de transporte terrestre, tomando como base de referencia `D:\web\plantilla-catalogo-web-v2`, sin modificar la plantilla. Usar como denominación de trabajo «Transportes Libertadores», coherente con el dossier local; confirmar el nombre final antes de publicar.
@@ -106,8 +108,10 @@ Restauraciones realizadas con la herramienta integrada image_gen; tres fotos y l
 
 ## Estado de implementación
 
-La SPA está implementada en `D:\web\libertadores-spa` con Vue 3, Vite y Tailwind 4; tres bloques principales (portada, ruta/servicios, empresa/contacto), cabecera con menú móvil y pie. Libron se sirve localmente y los ocho iconos Material Symbols están integrados como SVG locales. La paleta custom y el preset minimal plano están aplicados mediante tokens.
+La SPA evolucionó a un sitio orientado al pasajero con portada, destinos, servicios, agencias, nosotros, preguntas frecuentes y contacto. Se mantiene Vue 3, Vite y Tailwind 4, sin router ni CMS. Los titulares usan Libron Bold y la interfaz una sans-serif del sistema; los iconos Material Symbols son locales.
 
-Los datos de rutas, servicios y agencias tienen estado editorial; solo se publican la ruta y tres prestaciones verificadas. No se publican horarios, tarifas, teléfonos, correo, WhatsApp, agencias ni direcciones sin confirmar. La compra de pasajes y el modal de pedidos están desactivados.
+El cliente confirmó el WhatsApp +51 959 309 809 y los turnos 21:15 y 22:00 (`America/Lima`), que se muestran como 9:15 p. m. y 10:00 p. m. No se publican días, sentido, ciudad de salida, terminal, tarifas ni disponibilidad porque siguen pendientes. La compra de pasajes permanece desactivada.
 
-Verificado con validación de configuración, ESLint, Vitest y build de producción, además de revisión en navegador a 320, 375, 768 y 1440 px. Detalle de activos en `docs/PROCEDENCIA-ACTIVOS.md`.
+Solo se publica el servicio verificado de transporte interprovincial de pasajeros. Las agencias pendientes no se renderizan; la sección informa que están en confirmación. La ubicación se muestra como referencia de distrito, sin mapa genérico. La política de privacidad, el Libro de Reclamaciones y la razón social/RUC quedan como bloqueadores de publicación.
+
+Verificado con validación de configuración, ESLint, 37 pruebas, build de producción y revisión en navegador a 320, 375, 768, 1024 y 1440 px. Detalle de activos en `docs/PROCEDENCIA-ACTIVOS.md`.

@@ -11,8 +11,16 @@ import {
   isSectionEnabled,
 } from "./sections.js";
 
-const CONTENT_SECTIONS = Object.freeze(["hero", "services", "company"]);
-const TYPOGRAPHIES = Object.freeze(["libron"]);
+const CONTENT_SECTIONS = Object.freeze([
+  "hero",
+  "destinations",
+  "services",
+  "agencies",
+  "company",
+  "faq",
+  "contact",
+]);
+const TYPOGRAPHIES = Object.freeze(["libron-editorial"]);
 const RADII = Object.freeze(["sm", "md", "xl", "2xl", "full"]);
 const CONTAINERS = Object.freeze(["sm", "md", "lg", "xl", "7xl"]);
 
@@ -22,6 +30,14 @@ function err(path, message) {
 
 function isString(value) {
   return typeof value === "string";
+}
+
+function digits(value) {
+  return String(value ?? "").replace(/\D/g, "");
+}
+
+function isValidWhatsApp(value) {
+  return /^\d{8,15}$/.test(digits(value));
 }
 
 function validateBrand(site, errors) {
@@ -44,11 +60,37 @@ function validateBrand(site, errors) {
 function validateContact(contact, errors) {
   if (!contact) return;
   if (!contact.locality) errors.push(err("site.contact.locality", "requerido"));
-  const textFields = ["locality", "phone", "phoneDisplay", "email", "whatsapp", "facebookUrl", "facebookHandle", "mapQuery"];
+
+  const textFields = [
+    "locality",
+    "localityNote",
+    "phone",
+    "phoneDisplay",
+    "email",
+    "whatsapp",
+    "whatsappDisplay",
+    "whatsappMessage",
+    "facebookUrl",
+    "facebookHandle",
+    "mapQuery",
+  ];
   for (const field of textFields) {
     if (contact[field] != null && !isString(contact[field])) {
       errors.push(err(`site.contact.${field}`, "debe ser string"));
     }
+  }
+
+  if (contact.whatsapp && !isValidWhatsApp(contact.whatsapp)) {
+    errors.push(err("site.contact.whatsapp", "debe ser un número internacional de 8 a 15 dígitos"));
+  }
+  if (contact.whatsappDisplay && !isString(contact.whatsappDisplay)) {
+    errors.push(err("site.contact.whatsappDisplay", "debe ser string"));
+  }
+  if (contact.whatsappMessage && !isString(contact.whatsappMessage)) {
+    errors.push(err("site.contact.whatsappMessage", "debe ser string"));
+  }
+  if (contact.mapConfirmed != null && typeof contact.mapConfirmed !== "boolean") {
+    errors.push(err("site.contact.mapConfirmed", "debe ser boolean"));
   }
   if (contact.facebookUrl && !/^https:\/\/www\.facebook\.com\//i.test(contact.facebookUrl)) {
     errors.push(err("site.contact.facebookUrl", "debe ser una URL de facebook.com"));
@@ -56,10 +98,12 @@ function validateContact(contact, errors) {
   if (contact.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
     errors.push(err("site.contact.email", "debe ser un correo válido"));
   }
-  if (contact.whatsapp && !/^\d{8,15}$/.test(contact.whatsapp.replace(/\D/g, ""))) {
-    errors.push(err("site.contact.whatsapp", "debe contener entre 8 y 15 dígitos"));
+  if (contact.phone && !/^\d{7,15}$/.test(digits(contact.phone))) {
+    errors.push(err("site.contact.phone", "debe contener entre 7 y 15 dígitos"));
   }
-  if (![contact.facebookUrl, contact.mapQuery, contact.phone, contact.email].some(Boolean)) {
+
+  const hasMap = Boolean(contact.mapConfirmed && contact.mapQuery);
+  if (![contact.whatsapp, contact.facebookUrl, contact.phone, contact.email].some(Boolean) && !hasMap) {
     errors.push(err("site.contact", "requiere al menos un canal real de consulta"));
   }
 }
@@ -70,6 +114,19 @@ function validateAction(action, path, config, errors) {
     return;
   }
   if (!action.label) errors.push(err(`${path}.label`, "requerido"));
+
+  if (action.type === "whatsapp") {
+    if (!isValidWhatsApp(config.site?.contact?.whatsapp)) {
+      errors.push(err(`${path}.type`, "requiere un WhatsApp válido configurado"));
+    }
+    return;
+  }
+
+  if (action.type) {
+    errors.push(err(`${path}.type`, `tipo de acción no válido: ${action.type}`));
+    return;
+  }
+
   if (!action.href) {
     errors.push(err(`${path}.href`, "requerido: no se permiten CTA simulados"));
     return;

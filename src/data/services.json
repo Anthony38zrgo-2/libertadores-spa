@@ -1,37 +1,32 @@
 [
   {
     "id": "pasajeros",
-    "title": "Transporte de pasajeros",
-    "description": "Servicio regular interprovincial de personas en el ámbito nacional.",
+    "title": "Transporte interprovincial de pasajeros",
+    "description": "Servicio regular de transporte de personas en la ruta documentada Lima–Ayacucho.",
     "status": "verified",
-    "source": "RD N.º 0356-2025-MTC/17.02; RD N.º 1634-2026-MTC/17.02"
-  },
-  {
-    "id": "estandar",
-    "title": "Servicio estándar",
-    "description": "Modalidad consignada en la autorización de 2026 para la ruta Lima–Ayacucho.",
-    "status": "verified",
-    "source": "RD N.º 1634-2026-MTC/17.02"
-  },
-  {
-    "id": "flota",
-    "title": "Unidades M3 Clase III",
-    "description": "Categoría vehicular señalada en las autorizaciones de la ruta.",
-    "status": "verified",
-    "source": "RD N.º 0356-2025-MTC/17.02; RD N.º 1634-2026-MTC/17.02"
+    "visible": true,
+    "source": "RD N.º 0356-2025-MTC/17.02; RD N.º 1634-2026-MTC/17.02",
+    "verifiedAt": "2026-10-23",
+    "notes": "La autorización no acredita horarios, tarifas ni disponibilidad."
   },
   {
     "id": "encomiendas",
     "title": "Equipajes y encomiendas",
     "description": "Actividad mencionada en documentación de 2019 y en registros de una sociedad vinculada a la marca; falta confirmación vigente.",
     "status": "pending",
-    "source": "Estudio de 2019; registros empresariales"
+    "visible": false,
+    "source": "Estudio de 2019; registros empresariales",
+    "verifiedAt": "2026-10-23",
+    "notes": "No publicar como servicio vigente hasta confirmación del cliente."
   },
   {
     "id": "clases-historicas",
     "title": "Clases histórico-comerciales",
     "description": "Denominaciones de 2013 (económico, comercial, cama VIP) no confirmadas como clases actuales.",
     "status": "historical",
-    "source": "Archivo publicitario de 2013"
+    "visible": false,
+    "source": "Archivo publicitario de 2013",
+    "verifiedAt": "2026-10-23",
+    "notes": "Material histórico, no oferta vigente."
   }
 ]

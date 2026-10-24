@@ -1,8 +1,15 @@
 /**
  * useContact — construye canales reales de consulta.
- * No inventa canales: si teléfono, correo o WhatsApp están vacíos, no se
- * renderizan. Facebook y el enlace de ubicación se publican como referencias.
+ * No inventa canales ni publica mapas genéricos: el mapa solo se expone cuando
+ * la ubicación fue confirmada. WhatsApp es el primer canal.
  */
+
+export function buildWhatsAppUrl(number, message = "") {
+  const digits = String(number ?? "").replace(/\D/g, "");
+  if (!/^\d{8,15}$/.test(digits)) return "";
+  const base = `https://wa.me/${digits}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+}
 
 export function buildMapSearchUrl(query) {
   const value = String(query || "").trim();
@@ -16,6 +23,20 @@ export function getContactChannels(config) {
 
   const channels = [];
 
+  if (contact.whatsapp) {
+    const href = buildWhatsAppUrl(contact.whatsapp, contact.whatsappMessage);
+    if (href) {
+      channels.push({
+        id: "whatsapp",
+        label: "WhatsApp",
+        detail: contact.whatsappDisplay || contact.whatsapp,
+        href,
+        icon: "chat",
+        external: true,
+      });
+    }
+  }
+
   if (contact.facebookUrl) {
     channels.push({
       id: "facebook",
@@ -27,16 +48,18 @@ export function getContactChannels(config) {
     });
   }
 
-  const mapUrl = buildMapSearchUrl(contact.mapQuery);
-  if (mapUrl) {
-    channels.push({
-      id: "location",
-      label: "Ubicación",
-      detail: contact.locality || "Ver en el mapa",
-      href: mapUrl,
-      icon: "location_on",
-      external: true,
-    });
+  if (contact.mapConfirmed && contact.mapQuery) {
+    const mapUrl = buildMapSearchUrl(contact.mapQuery);
+    if (mapUrl) {
+      channels.push({
+        id: "location",
+        label: "Ubicación",
+        detail: contact.locality || "Ver en el mapa",
+        href: mapUrl,
+        icon: "location_on",
+        external: true,
+      });
+    }
   }
 
   if (contact.phone) {

@@ -1,11 +1,15 @@
 <script setup>
 /**
- * Portada — una fotografía, título breve, una frase y CTA de consulta.
- * Las acciones se filtran para no enlazar a secciones deshabilitadas.
+ * Portada — bus protagonista, ruta documentada, turnos informados y consulta
+ * directa por WhatsApp. No simula búsqueda ni disponibilidad.
  */
 import { computed } from "vue";
 import { siteConfig } from "@/config/site.config";
 import { isConfiguredLinkAvailable } from "@/config/sections";
+import { buildWhatsAppUrl } from "@/composables/useContact";
+import routes from "@/data/routes.json";
+import schedules from "@/data/schedules.json";
+import { findVerifiedRoute, getConfirmedSchedules, sortSchedules } from "@/data/routeHelpers";
 import MediaVisual from "@/components/ui/MediaVisual.vue";
 import UiButton from "@/components/ui/UiButton.vue";
 
@@ -13,14 +17,31 @@ const props = defineProps({
   eyebrow: { type: String, default: "" },
   title: { type: String, required: true },
   description: { type: String, default: "" },
+  scheduleLabel: { type: String, default: "Turnos informados" },
+  scheduleNote: { type: String, default: "" },
   actions: { type: Array, default: () => [] },
   visual: { type: Object, default: null },
   variant: { type: String, default: "split" },
 });
 
-const visibleActions = computed(() =>
-  (props.actions || []).filter((action) => isConfiguredLinkAvailable(action.href, siteConfig)),
+const whatsappHref = computed(() =>
+  buildWhatsAppUrl(siteConfig.site.contact.whatsapp, siteConfig.site.contact.whatsappMessage),
 );
+const route = findVerifiedRoute(routes);
+const scheduleItems = computed(() =>
+  route ? sortSchedules(getConfirmedSchedules(schedules, route.id)) : [],
+);
+
+function resolveAction(action) {
+  if (action.type === "whatsapp") {
+    if (!whatsappHref.value) return null;
+    return { ...action, href: whatsappHref.value, external: true };
+  }
+  if (!isConfiguredLinkAvailable(action.href, siteConfig)) return null;
+  return { ...action, external: /^https?:\/\//i.test(action.href || "") };
+}
+
+const visibleActions = computed(() => (props.actions || []).map(resolveAction).filter(Boolean));
 </script>
 
 <template>
@@ -30,6 +51,22 @@ const visibleActions = computed(() =>
         <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
         <h1 id="hero-title" class="display-title">{{ title }}</h1>
         <p v-if="description" class="lead">{{ description }}</p>
+
+        <div v-if="scheduleItems.length" class="hero-schedule">
+          <p class="hero-schedule-label">{{ scheduleLabel }}</p>
+          <div class="hero-schedule-times">
+            <time
+              v-for="schedule in scheduleItems"
+              :key="schedule.id"
+              class="hero-schedule-time"
+              :datetime="schedule.time"
+            >
+              {{ schedule.displayTime }}
+            </time>
+          </div>
+          <p v-if="scheduleNote" class="hero-schedule-note">{{ scheduleNote }}</p>
+        </div>
+
         <div v-if="visibleActions.length" class="button-row">
           <UiButton
             v-for="action in visibleActions"
@@ -38,6 +75,7 @@ const visibleActions = computed(() =>
             :href="action.href"
             :variant="action.variant || 'primary'"
             :icon="action.icon || ''"
+            :external="action.external"
           />
         </div>
       </div>

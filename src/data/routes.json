@@ -4,24 +4,28 @@
     "origin": "Lima",
     "destination": "Ayacucho",
     "serviceType": "Transporte regular de personas · ámbito nacional",
-    "summary": "Ruta consignada en autorizaciones del Ministerio de Transportes y Comunicaciones de 2025 y 2026.",
+    "summary": "Ruta consignada en autorizaciones del Ministerio de Transportes y Comunicaciones de 2025 y 2026, emitidas a titulares jurídicos distintos.",
     "authorizations": [
       {
         "reference": "RD N.º 0356-2025-MTC/17.02",
         "date": "2025-01-16",
-        "scope": "Lima–Ayacucho y viceversa, sin escala comercial"
+        "scope": "Lima–Ayacucho y viceversa, sin escala comercial",
+        "holder": "Inversiones en Transporte y Turismo Libertadores S.A.C.",
+        "operatorRuc": "20507725270"
       },
       {
         "reference": "RD N.º 1634-2026-MTC/17.02",
         "date": "2026-03-17",
-        "scope": "Lima–Ayacucho, servicio estándar"
+        "scope": "Lima–Ayacucho, servicio estándar",
+        "holder": "Transportes Tour Libertadores E.I.R.L.",
+        "operatorRuc": "20614614065"
       }
     ],
     "editorial": {
       "state": "verified",
       "reviewedAt": "2026-10-23",
       "source": "docs/transportes_libertadores_informacion_empresa.md",
-      "note": "Las autorizaciones acreditan la ruta, no horarios, tarifas ni venta vigente."
+      "note": "Las autorizaciones acreditan la ruta, no horarios, tarifas, venta ni una operación única. Cada autorización pertenece a un titular distinto."
     }
   }
 ]

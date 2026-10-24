@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "validate": "node scripts/validate-config.mjs",
+    "seo:sitemap": "node scripts/generate-sitemap.mjs",
     "check": "npm run validate && npm run lint && npm run test && npm run build"
   },
   "dependencies": {

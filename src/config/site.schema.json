@@ -30,13 +30,17 @@
           "type": "object",
           "properties": {
             "locality": { "type": "string" },
+            "localityNote": { "type": "string" },
             "phone": { "type": "string" },
             "phoneDisplay": { "type": "string" },
             "email": { "type": "string" },
             "whatsapp": { "type": "string" },
+            "whatsappDisplay": { "type": "string" },
+            "whatsappMessage": { "type": "string" },
             "facebookUrl": { "type": "string" },
             "facebookHandle": { "type": "string" },
-            "mapQuery": { "type": "string" }
+            "mapQuery": { "type": "string" },
+            "mapConfirmed": { "type": "boolean" }
           }
         }
       }
@@ -60,7 +64,7 @@
             "accent": { "type": "string", "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" }
           }
         },
-        "typography": { "enum": ["libron"] },
+        "typography": { "enum": ["libron-editorial"] },
         "radius": { "enum": ["sm", "md", "xl", "2xl", "full"] }
       }
     },
@@ -79,7 +83,9 @@
         "properties": {
           "label": { "type": "string" },
           "href": { "type": "string" },
-          "section": { "enum": ["header", "hero", "services", "company", "footer"] }
+          "section": {
+            "enum": ["header", "hero", "destinations", "services", "agencies", "company", "faq", "contact", "footer"]
+          }
         }
       }
     },
@@ -89,7 +95,9 @@
         "type": "object",
         "required": ["id", "enabled"],
         "properties": {
-          "id": { "enum": ["header", "hero", "services", "company", "footer"] },
+          "id": {
+            "enum": ["header", "hero", "destinations", "services", "agencies", "company", "faq", "contact", "footer"]
+          },
           "enabled": { "type": "boolean" },
           "order": { "type": "number" },
           "variant": { "type": "string" },

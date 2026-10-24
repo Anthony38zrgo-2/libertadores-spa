@@ -27,6 +27,7 @@ const footerSection = computed(() => siteConfig.sections.find((section) => secti
 const headerAction = computed(() => headerSection.value?.props?.action ?? null);
 const footerLegal = computed(() => footerSection.value?.props?.legal ?? "");
 const footerLocation = computed(() => footerSection.value?.props?.location ?? "");
+const footerNote = computed(() => footerSection.value?.props?.note ?? "");
 
 const showHeader = computed(() => isSectionEnabled("header", siteConfig));
 const showFooter = computed(() => isSectionEnabled("footer", siteConfig));
@@ -52,6 +53,7 @@ const showFooter = computed(() => isSectionEnabled("footer", siteConfig));
       :brand="siteConfig.site.brand"
       :legal="footerLegal"
       :location="footerLocation"
+      :note="footerNote"
     />
   </div>
 </template>

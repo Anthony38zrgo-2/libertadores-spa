@@ -1,7 +1,7 @@
 /**
  * useTheme — aplica preset, paleta custom, radios, tipografía y SEO.
- * La tipografía Libron se fija aquí y en el CSS; no se inyectan familias
- * externas que puedan anular la fuente local.
+ * Titulares en Libron; interfaz y cuerpo en sans-serif del sistema.
+ * No se inyectan familias externas descargables.
  */
 import { watchEffect } from "vue";
 import { resolvePaletteColors } from "@/config/palettes";
@@ -15,8 +15,8 @@ const RADIUS_MAP = {
 };
 
 const TYPOGRAPHY_MAP = {
-  libron: {
-    sans: '"Libron", Georgia, "Times New Roman", serif',
+  "libron-editorial": {
+    sans: 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     display: '"Libron", Georgia, "Times New Roman", serif',
   },
 };

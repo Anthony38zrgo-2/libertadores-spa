@@ -1,20 +1,39 @@
 /**
  * REGISTRO DE SECCIONES, ANCLAS Y HELPERS
- * La estructura pública se limita a portada, ruta/servicios y empresa/contacto.
+ * Estructura orientada al pasajero: portada, destinos, servicios, agencias,
+ * nosotros, preguntas frecuentes y contacto.
  */
 
-export const SECTION_IDS = Object.freeze(["header", "hero", "services", "company", "footer"]);
+export const SECTION_IDS = Object.freeze([
+  "header",
+  "hero",
+  "destinations",
+  "services",
+  "agencies",
+  "company",
+  "faq",
+  "contact",
+  "footer",
+]);
 
 export const SECTION_VARIANTS = Object.freeze({
   hero: ["split", "centered"],
+  destinations: ["grid", "list"],
   services: ["compact"],
+  agencies: ["list", "notice"],
   company: ["split", "split-reverse"],
+  faq: ["list"],
+  contact: ["split", "centered"],
 });
 
 export const ANCHOR_SECTIONS = Object.freeze({
   "#top": "hero",
+  "#destinos": "destinations",
   "#servicios": "services",
-  "#contacto": "company",
+  "#agencias": "agencies",
+  "#nosotros": "company",
+  "#preguntas": "faq",
+  "#contacto": "contact",
 });
 
 export function isSectionEnabled(id, config) {
@@ -24,7 +43,9 @@ export function isSectionEnabled(id, config) {
 
 export function getUnknownSectionIds(config) {
   if (!config?.sections) return [];
-  return config.sections.filter((section) => !SECTION_IDS.includes(section.id)).map((section) => section.id);
+  return config.sections
+    .filter((section) => !SECTION_IDS.includes(section.id))
+    .map((section) => section.id);
 }
 
 export function getOrderedSections(config) {
@@ -46,7 +67,9 @@ export function isConfiguredLinkAvailable(href, config) {
 }
 
 export function getFirstContentHref(config) {
-  const first = ["hero", "services", "company"].find((id) => isSectionEnabled(id, config));
+  const first = ["hero", "destinations", "services", "agencies", "company", "faq", "contact"].find(
+    (id) => isSectionEnabled(id, config),
+  );
   return first ? getAnchorForSection(first) : "#top";
 }
 

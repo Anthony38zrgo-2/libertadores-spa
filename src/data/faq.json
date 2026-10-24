@@ -1,0 +1,50 @@
+[
+  {
+    "id": "consulta-turnos",
+    "question": "¿Cómo consulto los turnos y la disponibilidad?",
+    "answer": "Consulta los turnos informados en la sección Destinos. La ciudad de salida, los días y la disponibilidad se confirman por WhatsApp.",
+    "status": "confirmed",
+    "source": "cliente",
+    "reviewedAt": "2026-10-23"
+  },
+  {
+    "id": "compra-en-linea",
+    "question": "¿Puedo comprar pasajes en este sitio?",
+    "answer": "No. Este sitio es informativo y la venta de pasajes no está disponible en línea. Consulta por WhatsApp para conocer los canales de atención.",
+    "status": "confirmed",
+    "source": "editorial",
+    "reviewedAt": "2026-10-23"
+  },
+  {
+    "id": "equipaje",
+    "question": "¿Qué condiciones tiene el equipaje?",
+    "answer": "Consultar condiciones, límites y restricciones por WhatsApp.",
+    "status": "pending",
+    "source": "editorial",
+    "reviewedAt": "2026-10-23"
+  },
+  {
+    "id": "cambios",
+    "question": "¿Puedo cambiar o anular un pasaje?",
+    "answer": "Consultar condiciones de cambio, postergación o anulación por WhatsApp.",
+    "status": "pending",
+    "source": "editorial",
+    "reviewedAt": "2026-10-23"
+  },
+  {
+    "id": "embarque",
+    "question": "¿Dónde tomo el bus?",
+    "answer": "El punto de embarque se confirma por WhatsApp. No publicamos una dirección exacta hasta confirmarla.",
+    "status": "pending",
+    "source": "editorial",
+    "reviewedAt": "2026-10-23"
+  },
+  {
+    "id": "documentos",
+    "question": "¿Qué documentos necesito para viajar?",
+    "answer": "Consultar requisitos y documentación por WhatsApp.",
+    "status": "pending",
+    "source": "editorial",
+    "reviewedAt": "2026-10-23"
+  }
+]

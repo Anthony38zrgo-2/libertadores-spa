@@ -8,8 +8,8 @@ export const PRESETS = Object.freeze(["minimal"]);
 export const PRESET_META = Object.freeze({
   minimal: {
     label: "Minimal plano",
-    description: "Limpio y profesional: tipografía, espacio y líneas; sin efectos.",
-    typography: "libron",
+    description: "Limpio y profesional: titulares editoriales, interfaz sans y líneas finas.",
+    typography: "libron-editorial",
   },
 });
 
