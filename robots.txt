@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap pendiente de dominio definitivo. Generar con:
+# VITE_SITE_URL=https://dominio.example npm run seo:sitemap
