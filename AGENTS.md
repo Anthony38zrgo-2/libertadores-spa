@@ -20,6 +20,7 @@ SPA informativa orientada al pasajero para Transportes Libertadores. Vue 3 + Vit
 - Solo se publican servicios `status: "verified"` y `visible: true`. Agencias solo con `editorial.state: "confirmed"`; las pendientes no publican direcciones.
 - No publiques mapas genéricos ni direcciones no confirmadas. La ubicación de contacto es una referencia de distrito.
 - Titulares en **Libron Bold**; navegación, cuerpo, botones, números y datos en sans-serif del sistema. No agregues familias externas.
+- Iconos: Material Symbols locales para interfaz y el glifo social clásico de WhatsApp (Simple Icons, CC0) para el canal. El botón flotante de WhatsApp es verde/blanco y usa ese glifo.
 - Paleta y tipografía solo con tokens CSS. No agregues hex en componentes Vue.
 - Diseño base plano. Excepciones solicitadas: hero con fotografía del bus de fondo, scrim grafito y texto blanco; botones/CTA con acabado aero-glass (translúcido, blur, brillo y sombra suave). No usar glassmorphism en el resto de paneles ni animaciones ornamentales. Mantener `prefers-reduced-motion`.
 - Mantén la validación: `npm run validate` o `npm run check`.

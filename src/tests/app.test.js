@@ -155,7 +155,7 @@ describe("WhatsApp y contacto", () => {
     expect(channels.map((channel) => channel.id)).toEqual(["whatsapp", "facebook"]);
     expect(channels[0].detail).toBe("+51 959 309 809");
     expect(channels[0].href).toContain("https://wa.me/51959309809");
-    expect(channels[0].icon).toBe("chat");
+    expect(channels[0].icon).toBe("whatsapp");
     expect(channels.every((channel) => channel.href.startsWith("https://"))).toBe(true);
     expect(channels.some((channel) => channel.id === "location")).toBe(false);
   });
@@ -393,23 +393,24 @@ describe("App y accesibilidad básica", () => {
 });
 
 describe("activos y SEO", () => {
-  it("registra los nueve iconos locales, incluido chat", () => {
+  it("registra ocho iconos Material y el icono social de WhatsApp", () => {
     expect(Object.keys(ICONS).sort()).toEqual(
       [
         "arrow_forward",
         "call",
-        "chat",
         "close",
         "directions_bus",
         "location_on",
         "mail",
         "menu",
         "route",
+        "whatsapp",
       ].sort(),
     );
-    for (const icon of Object.values(ICONS)) {
+    for (const [name, icon] of Object.entries(ICONS)) {
       expect(icon.content).toContain("<path");
-      expect(icon.viewBox).toBe("0 -960 960 960");
+      expect(icon.fill).toBe(true);
+      expect(icon.viewBox).toBe(name === "whatsapp" ? "0 0 24 24" : "0 -960 960 960");
     }
   });
 

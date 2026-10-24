@@ -78,7 +78,7 @@ const whatsappHref = computed(() =>
           :label="ctaLabel"
           :href="whatsappHref"
           variant="primary"
-          icon="chat"
+          icon="whatsapp"
           external
         />
       </div>

@@ -69,8 +69,7 @@ const whatsappHref = computed(() =>
       rel="noopener noreferrer"
       aria-label="Consultar por WhatsApp"
     >
-      <SvgIcon name="chat" :size="22" />
-      <span class="floating-whatsapp-label">WhatsApp</span>
+      <SvgIcon name="whatsapp" :size="30" />
     </a>
   </div>
 </template>

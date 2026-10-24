@@ -41,7 +41,7 @@ src/components/ui/            MediaVisual, SectionHeader, SvgIcon, UiButton
 src/composables/              useTheme, useContact
 src/styles/                   Tokens, fuentes, preset minimal plano y componentes
 src/assets/fonts/             Libron WOFF2 + licencia OFL
-src/assets/icons/             Material Symbols + Apache 2.0
+src/assets/icons/             Material Symbols + WhatsApp social con licencias
 src/assets/images/            Derivados WebP recortados
 public/og/                    Imagen Open Graph estable
 ```
@@ -63,7 +63,8 @@ public/og/                    Imagen Open Graph estable
 
 - Base plana: contenido en bloques sólidos y líneas finas, sin animaciones ornamentales.
 - Hero con la fotografía del bus a sangre, scrim grafito y texto blanco para asegurar contraste.
-- Botones y CTA con acabado aero-glass: fondo translúcido, `backdrop-filter`, brillo interior y sombra suave. Incluye el botón flotante de WhatsApp.
+- Botones y CTA con acabado aero-glass: fondo translúcido, `backdrop-filter`, brillo interior y sombra suave.
+- Botón flotante clásico de WhatsApp: círculo verde, glifo blanco local y sombra; usa `--color-whatsapp` y `--color-whatsapp-dark`.
 - Titulares en Libron Bold; interfaz y cuerpo en sans-serif del sistema. El logotipo se muestra sobre una placa blanca.
 - Paleta custom: grafito `#25282C`, blanco humo `#F6F7F7`, gris plata `#DADDE0`, rojo `#D71920` y naranja `#F26322`.
 - Tokens en `src/styles/theme.css`; los componentes no contienen hex. El foco usa rojo en fondos claros y naranja en cabecera/pie.

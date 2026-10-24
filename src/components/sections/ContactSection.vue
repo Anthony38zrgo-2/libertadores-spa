@@ -58,7 +58,7 @@ const locality = siteConfig.site.contact.locality;
         >
           <span class="contact-whatsapp-name">{{ whatsapp.label }}</span>
           <span class="contact-whatsapp-number">{{ whatsapp.detail }}</span>
-          <SvgIcon name="chat" :size="24" />
+          <SvgIcon name="whatsapp" :size="24" />
           <span class="visually-hidden"> (se abre en una pestaña nueva)</span>
         </a>
 

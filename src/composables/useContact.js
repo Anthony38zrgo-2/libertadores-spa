@@ -31,7 +31,7 @@ export function getContactChannels(config) {
         label: "WhatsApp",
         detail: contact.whatsappDisplay || contact.whatsapp,
         href,
-        icon: "chat",
+        icon: "whatsapp",
         external: true,
       });
     }

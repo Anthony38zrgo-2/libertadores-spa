@@ -28,7 +28,7 @@ Libron v0.31, WOFF2, con licencia OFL 1.1 en `src/assets/fonts/LICENSE.txt`. Pro
 
 ## Iconos
 
-Material Symbols Outlined, Apache 2.0, con licencia y procedencia en `src/assets/icons/material-symbols/`. Se incorporó `chat.svg` para el canal de WhatsApp, manteniendo el mismo set y `currentColor`.
+Material Symbols Outlined, Apache 2.0, con licencia y procedencia en `src/assets/icons/material-symbols/`. El canal de WhatsApp usa el icono social clásico de Simple Icons (CC0 1.0) en `src/assets/icons/social/`, renderizado con `currentColor`; WhatsApp es una marca de Meta y se usa solo para identificar el canal.
 
 ## Capturas de revisión
 
