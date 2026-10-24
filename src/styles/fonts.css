@@ -1,0 +1,36 @@
+/**
+ * LIBRON — fuente local (WOFF2), cuatro estilos reales.
+ * Licencia y procedencia junto a las fuentes, en src/assets/fonts/.
+ * No se solicitan familias externas.
+ */
+@font-face {
+  font-family: "Libron";
+  src: url("../assets/fonts/Libron-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libron";
+  src: url("../assets/fonts/Libron-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libron";
+  src: url("../assets/fonts/Libron-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libron";
+  src: url("../assets/fonts/Libron-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

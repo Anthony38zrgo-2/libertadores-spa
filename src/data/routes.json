@@ -1,0 +1,27 @@
+[
+  {
+    "id": "lima-ayacucho",
+    "origin": "Lima",
+    "destination": "Ayacucho",
+    "serviceType": "Transporte regular de personas · ámbito nacional",
+    "summary": "Ruta consignada en autorizaciones del Ministerio de Transportes y Comunicaciones de 2025 y 2026.",
+    "authorizations": [
+      {
+        "reference": "RD N.º 0356-2025-MTC/17.02",
+        "date": "2025-01-16",
+        "scope": "Lima–Ayacucho y viceversa, sin escala comercial"
+      },
+      {
+        "reference": "RD N.º 1634-2026-MTC/17.02",
+        "date": "2026-03-17",
+        "scope": "Lima–Ayacucho, servicio estándar"
+      }
+    ],
+    "editorial": {
+      "state": "verified",
+      "reviewedAt": "2026-10-23",
+      "source": "docs/transportes_libertadores_informacion_empresa.md",
+      "note": "Las autorizaciones acreditan la ruta, no horarios, tarifas ni venta vigente."
+    }
+  }
+]

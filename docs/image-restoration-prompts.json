@@ -1,0 +1,26 @@
+[
+  {
+    "asset": "images/restored/bus-carretera.webp",
+    "original": "images/118471864_3347861961928826_2345909196065410550_n.jpg",
+    "prompt": "Use case: precise-object-edit. Restore this original photograph conservatively for a transport company website. Reduce JPEG artifacts, improve natural clarity, exposure and color balance without inventing details or making it look synthetic. Preserve bus, all original livery and text, people, vehicles and mountain road composition.",
+    "tool": "image_gen built-in"
+  },
+  {
+    "asset": "images/restored/bus-tripulacion.webp",
+    "original": "images/481020693_1043537897800801_4782920546968623107_n.jpg",
+    "prompt": "Use case: identity-preserve. Restore the supplied original photo conservatively: reduce compression artifacts, balance exposure and recover natural clarity. Do not invent details or beautify faces. Preserve both people's exact identities, faces, clothes, bus livery, all lettering and all existing photographer credits/watermarks.",
+    "tool": "image_gen built-in"
+  },
+  {
+    "asset": "images/restored/equipo-agencia.webp",
+    "original": "images/487357513_1073080788179845_8549531481633531798_n.jpg",
+    "prompt": "Use case: identity-preserve. Conservatively restore this agency team photograph for a website. Correct exposure and white balance, reduce compression, improve natural clarity. No face beautification, no invented details. Preserve all three people's exact identities, facial features, clothes, agency sign lettering, decorations and composition.",
+    "tool": "image_gen built-in"
+  },
+  {
+    "asset": "images/restored/logo-libertadores.webp",
+    "original": "images/654811501_1366717262149528_5323811414362001939_n.jpg",
+    "prompt": "Edit target: original logo. Crop away blank outer margins. Preserve complete symbol, TOUR, LIBERTADORES and original slogan, lettering, geometry and colors. Solid opaque white background, clean edges and small safe margins; no redesign or transparency.",
+    "tool": "image_gen built-in"
+  }
+]

@@ -1,0 +1,9 @@
+/**
+ * PRESET MINIMAL — adaptado a diseño plano.
+ * Sin sombras, degradados, relieves ni animaciones ornamentales.
+ */
+[data-preset="minimal"] {
+  --radius-card: 0.25rem;
+  --radius-button: 0.25rem;
+  --radius-visual: 0.25rem;
+}

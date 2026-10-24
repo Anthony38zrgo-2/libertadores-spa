@@ -1,0 +1,34 @@
+/**
+ * TOKENS BASE — TRANSPORTES LIBERTADORES
+ * Paleta custom de la identidad, tipografía Libron y radios discretos.
+ * useTheme inyecta los mismos valores desde site.config.js.
+ */
+@theme {
+  --font-sans: "Libron", Georgia, "Times New Roman", serif;
+  --font-display: "Libron", Georgia, "Times New Roman", serif;
+
+  --color-ink: #25282c;
+  --color-muted: #25282c;
+  --color-surface: #f6f7f7;
+  --color-surface-alt: #dadde0;
+  --color-brand: #d71920;
+  --color-brand-dark: #25282c;
+  --color-accent: #f26322;
+  --color-white: #ffffff;
+  --color-focus: #d71920;
+
+  --radius-card: 0.25rem;
+  --radius-button: 0.25rem;
+  --radius-visual: 0.25rem;
+
+  --text-display-base: 3rem;
+}
+
+:root {
+  /* Derivados de los tokens: texto secundario y líneas, sin hex sueltos. */
+  --color-soft: color-mix(in srgb, var(--color-ink) 78%, var(--color-surface));
+  --color-line: color-mix(in srgb, var(--color-ink) 12%, var(--color-surface));
+  --color-line-strong: color-mix(in srgb, var(--color-ink) 55%, var(--color-surface));
+  --color-on-dark-soft: color-mix(in srgb, var(--color-white) 72%, transparent);
+  --header-height: 5.25rem;
+}
