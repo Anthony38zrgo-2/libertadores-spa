@@ -115,3 +115,5 @@ El cliente confirmó el WhatsApp +51 959 309 809 y los turnos 21:15 y 22:00 (`Am
 Solo se publica el servicio verificado de transporte interprovincial de pasajeros. Las cinco agencias aportadas por el cliente se publican con ciudad/distrito, agencia, dirección y teléfono; los teléfonos no identificados se muestran como texto. La portada usa la fotografía del bus como fondo con texto blanco y los botones/CTA tienen acabado aero-glass; el acceso flotante a WhatsApp usa el glifo clásico en verde y blanco. La ubicación de contacto sigue siendo una referencia de distrito, sin mapa genérico. La política de privacidad, el Libro de Reclamaciones y la razón social/RUC quedan como bloqueadores de publicación.
 
 Verificado con validación de configuración, ESLint, 39 pruebas, build de producción y revisión en navegador a 320, 375, 768, 1024 y 1440 px. Detalle de activos en `docs/PROCEDENCIA-ACTIVOS.md`.
+
+Publicado en GitHub Pages desde la rama `gh-pages`, con base `/libertadores-spa/`: https://anthony38zrgo-2.github.io/libertadores-spa/.

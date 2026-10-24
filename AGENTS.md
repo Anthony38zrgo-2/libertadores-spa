@@ -30,9 +30,10 @@ SPA informativa orientada al pasajero para Transportes Libertadores. Vue 3 + Vit
 
 ```sh
 npm run check
+npm run deploy:gh-pages   # solo cuando se solicite publicar
 ```
 
-Incluye validación de configuración y datos, ESLint, Vitest y build. Revisa 320, 375, 768, 1024 y 1440 px en el navegador.
+`npm run check` incluye validación de configuración y datos, ESLint, Vitest y build. Revisa 320, 375, 768, 1024 y 1440 px en el navegador. La base de producción para GitHub Pages es `/libertadores-spa/` y vive en `.env.production`.
 
 ## Finalización
 

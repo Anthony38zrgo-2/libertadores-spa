@@ -17,10 +17,12 @@ npm run dev
 npm run validate    # valida site.config.js y los datos editoriales
 npm run lint        # ESLint
 npm run test        # Vitest + jsdom
-npm run build       # build de producción
-npm run check       # validate + lint + test + build
-npm run preview     # revisa el build
-npm run seo:sitemap # genera public/sitemap.xml si VITE_SITE_URL está definido
+npm run build           # build de producción (base /libertadores-spa/)
+npm run build:gh-pages  # build con base explícita para GitHub Pages
+npm run deploy:gh-pages # build + push de dist a la rama gh-pages
+npm run check           # validate + lint + test + build
+npm run preview         # revisa el build
+npm run seo:sitemap     # genera public/sitemap.xml si VITE_SITE_URL está definido
 ```
 
 ## Estructura
@@ -72,7 +74,15 @@ public/og/                    Imagen Open Graph estable
 
 ## Alojamiento
 
-`VITE_BASE` define la base de Vite. Usa `/` en dominio propio o `/nombre-repositorio/` en un subdirectorio. Los activos, las fuentes y los iconos se resuelven con la base del build; no se asume GitHub Pages ni OpenAI Sites.
+`VITE_BASE` define la base de Vite. Para este repositorio, GitHub Pages publica en `https://anthony38zrgo-2.github.io/libertadores-spa/`, por lo que la base de producción es `/libertadores-spa/` y está declarada en `.env.production`.
+
+```sh
+npm run deploy:gh-pages
+```
+
+El comando compila con la base correcta y publica `dist/` en la rama `gh-pages`. En GitHub, la fuente de Pages debe ser **Deploy from a branch → gh-pages → / (root)**. `public/.nojekyll` evita el procesamiento de Jekyll.
+
+Si se usa un dominio propio, se renombra el repositorio o se publica en otro subdirectorio, ajustar `VITE_BASE` y la base del comando de build. Los activos, fuentes, iconos e imagen Open Graph se resuelven con esa base.
 
 ## Pendientes antes de publicar
 
