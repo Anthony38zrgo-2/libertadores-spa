@@ -32,7 +32,7 @@ Material Symbols Outlined, Apache 2.0, con licencia y procedencia en `src/assets
 
 ## Capturas de revisión
 
-Generadas desde el build de producción y revisadas en Chrome sin interfaz a 320, 375, 480, 640, 768, 900, 1024 y 1440 px. No se publican con el sitio; son evidencia de la revisión local.
+Generadas desde el build de producción y revisadas en Chrome sin interfaz a 320, 375, 768, 1024 y 1440 px. No se publican con el sitio; son evidencia de la revisión local.
 
 - `docs/capturas/antes-escritorio-1440.webp` y `docs/capturas/antes-movil-375.webp`: estado previo al rediseño orientado al pasajero.
 - `docs/capturas/escritorio-1440.webp`
@@ -47,7 +47,7 @@ Generadas desde el build de producción y revisadas en Chrome sin interfaz a 320
 - `src/data/routes.json`: ruta Lima–Ayacucho y resoluciones MTC 0356-2025 y 1634-2026, cada una con su titular y RUC.
 - `src/data/schedules.json`: turnos 21:15 y 22:00 (`America/Lima`) informados por el cliente el 2026-10-23. Días, sentido, ciudad de salida, punto de embarque y dirección permanecen nulos.
 - `src/data/services.json`: una prestación verificada y visible; una pendiente y una histórica que no se renderizan.
-- `src/data/agencies.json`: cinco agencias documentadas, ninguna confirmada; incluye la discrepancia Arriola 2328/2330.
+- `src/data/agencies.json`: cinco agencias confirmadas por el cliente el 2026-10-23, con ciudad/distrito, dirección y teléfono. San Luis queda en Av. Nicolás Arriola 2330; Vitarte y Manco Cápac no tienen teléfono identificado.
 - `src/data/faq.json`: seis respuestas informativas; las condiciones no confirmadas remiten a WhatsApp.
 - WhatsApp confirmado: `51959309809` / `+51 959 309 809`, según dato directo del cliente.
 - Fuente editorial: `docs/transportes_libertadores_informacion_empresa.md`.

@@ -1,7 +1,7 @@
 <script setup>
 /**
- * Agencias — solo se publican registros con atención confirmada.
- * Si no hay ninguno, se informa sin exponer direcciones pendientes.
+ * Agencias — tarjetas con ciudad/distrito, agencia, dirección y teléfono.
+ * Solo se publican registros con estado confirmed.
  */
 import { computed } from "vue";
 import { siteConfig } from "@/config/site.config";
@@ -41,13 +41,22 @@ const whatsappHref = computed(() =>
 
       <div v-if="confirmedAgencies.length" class="agency-list">
         <article v-for="agency in confirmedAgencies" :key="agency.id" class="agency-card">
+          <p class="agency-place">{{ agency.city }} – {{ agency.district }}</p>
           <h3>{{ agency.name }}</h3>
-          <p class="agency-place">{{ agency.city }} · {{ agency.district }}</p>
-          <p v-if="agency.addresses?.[0]" class="agency-detail">{{ agency.addresses[0] }}</p>
+          <dl class="agency-meta">
+            <div>
+              <dt>Dirección</dt>
+              <dd>{{ agency.addresses?.[0] }}</dd>
+            </div>
+            <div>
+              <dt>Teléfono</dt>
+              <dd>
+                <a v-if="agency.phone" :href="`tel:+51${agency.phone}`">{{ agency.phoneDisplay }}</a>
+                <span v-else>{{ agency.phoneDisplay || "No identificado" }}</span>
+              </dd>
+            </div>
+          </dl>
           <p v-if="agency.schedule" class="agency-detail">Horario: {{ agency.schedule }}</p>
-          <a v-if="agency.phone" class="agency-link" :href="`tel:${agency.phone.replace(/\D/g, '')}`">
-            {{ agency.phone }}
-          </a>
           <a
             v-if="agency.mapUrl"
             class="agency-link"

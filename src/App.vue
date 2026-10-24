@@ -3,10 +3,12 @@ import { computed } from "vue";
 import { siteConfig } from "@/config/site.config";
 import { validateConfig } from "@/config/validate";
 import { getNavigationItems, getOrderedSections, isSectionEnabled } from "@/config/sections";
+import { buildWhatsAppUrl } from "@/composables/useContact";
 import { useTheme } from "@/composables/useTheme";
 import AppHeader from "@/components/layout/AppHeader.vue";
 import AppFooter from "@/components/layout/AppFooter.vue";
 import SectionRenderer from "@/components/sections/SectionRenderer.vue";
+import SvgIcon from "@/components/ui/SvgIcon.vue";
 
 const errors = validateConfig(siteConfig);
 if (errors.length) {
@@ -31,6 +33,9 @@ const footerNote = computed(() => footerSection.value?.props?.note ?? "");
 
 const showHeader = computed(() => isSectionEnabled("header", siteConfig));
 const showFooter = computed(() => isSectionEnabled("footer", siteConfig));
+const whatsappHref = computed(() =>
+  buildWhatsAppUrl(siteConfig.site.contact.whatsapp, siteConfig.site.contact.whatsappMessage),
+);
 </script>
 
 <template>
@@ -55,5 +60,17 @@ const showFooter = computed(() => isSectionEnabled("footer", siteConfig));
       :location="footerLocation"
       :note="footerNote"
     />
+
+    <a
+      v-if="whatsappHref"
+      class="floating-whatsapp"
+      :href="whatsappHref"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Consultar por WhatsApp"
+    >
+      <SvgIcon name="chat" :size="22" />
+      <span class="floating-whatsapp-label">WhatsApp</span>
+    </a>
   </div>
 </template>

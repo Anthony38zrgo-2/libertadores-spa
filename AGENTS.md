@@ -21,7 +21,7 @@ SPA informativa orientada al pasajero para Transportes Libertadores. Vue 3 + Vit
 - No publiques mapas genéricos ni direcciones no confirmadas. La ubicación de contacto es una referencia de distrito.
 - Titulares en **Libron Bold**; navegación, cuerpo, botones, números y datos en sans-serif del sistema. No agregues familias externas.
 - Paleta y tipografía solo con tokens CSS. No agregues hex en componentes Vue.
-- Diseño plano: sin sombras, degradados, relieves, glassmorphism ni animaciones ornamentales. Transiciones de color discretas y `prefers-reduced-motion`.
+- Diseño base plano. Excepciones solicitadas: hero con fotografía del bus de fondo, scrim grafito y texto blanco; botones/CTA con acabado aero-glass (translúcido, blur, brillo y sombra suave). No usar glassmorphism en el resto de paneles ni animaciones ornamentales. Mantener `prefers-reduced-motion`.
 - Mantén la validación: `npm run validate` o `npm run check`.
 - Accesibilidad: jerarquía de encabezados, `aria-labelledby`, foco visible, nombres accesibles, menú móvil operable con teclado/Escape y enlaces externos con `rel="noopener noreferrer"`.
 

@@ -1,16 +1,16 @@
 <script setup>
 /**
- * Portada — bus protagonista, ruta documentada, turnos informados y consulta
- * directa por WhatsApp. No simula búsqueda ni disponibilidad.
+ * Portada — fotografía del bus como fondo, texto blanco y consulta directa.
+ * No simula búsqueda ni disponibilidad.
  */
 import { computed } from "vue";
 import { siteConfig } from "@/config/site.config";
 import { isConfiguredLinkAvailable } from "@/config/sections";
 import { buildWhatsAppUrl } from "@/composables/useContact";
+import { getSiteImage } from "@/data/images";
 import routes from "@/data/routes.json";
 import schedules from "@/data/schedules.json";
 import { findVerifiedRoute, getConfirmedSchedules, sortSchedules } from "@/data/routeHelpers";
-import MediaVisual from "@/components/ui/MediaVisual.vue";
 import UiButton from "@/components/ui/UiButton.vue";
 
 const props = defineProps({
@@ -24,6 +24,10 @@ const props = defineProps({
   variant: { type: String, default: "split" },
 });
 
+const image = computed(() =>
+  props.visual?.type === "image" ? getSiteImage(props.visual.key) : null,
+);
+const imageAlt = computed(() => props.visual?.alt || image.value?.alt || props.title);
 const whatsappHref = computed(() =>
   buildWhatsAppUrl(siteConfig.site.contact.whatsapp, siteConfig.site.contact.whatsappMessage),
 );
@@ -45,8 +49,27 @@ const visibleActions = computed(() => (props.actions || []).map(resolveAction).f
 </script>
 
 <template>
-  <section id="top" class="hero-section" :class="`hero-${variant}`" aria-labelledby="hero-title">
-    <div class="page-container" :class="variant === 'split' ? 'hero-grid' : 'hero-centered'">
+  <section
+    id="top"
+    class="hero-section"
+    :class="[variant === 'centered' ? 'hero-centered' : '', image ? 'hero-has-image' : 'hero-no-image']"
+    aria-labelledby="hero-title"
+  >
+    <template v-if="image">
+      <img
+        class="hero-background"
+        :src="image.src"
+        :alt="imageAlt"
+        :width="image.width"
+        :height="image.height"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      >
+      <span class="hero-scrim" aria-hidden="true" />
+    </template>
+
+    <div class="page-container hero-inner">
       <div class="hero-copy">
         <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
         <h1 id="hero-title" class="display-title">{{ title }}</h1>
@@ -79,8 +102,6 @@ const visibleActions = computed(() => (props.actions || []).map(resolveAction).f
           />
         </div>
       </div>
-
-      <MediaVisual v-if="visual" :visual="visual" :label="title" class="hero-media" priority />
     </div>
   </section>
 </template>

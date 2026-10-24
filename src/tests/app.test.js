@@ -232,8 +232,12 @@ describe("turnos y rutas", () => {
 
   it("no inventa días, sentidos ni terminales", () => {
     const text = mountApp().text().toLowerCase();
-    for (const forbidden of ["diario", "diariamente", "desde lima", "desde ayacucho", "ambos sentidos", "terminal"]) {
+    for (const forbidden of ["diario", "diariamente", "desde lima", "desde ayacucho", "ambos sentidos"]) {
       expect(text).not.toContain(forbidden);
+    }
+    for (const schedule of schedules) {
+      expect(schedule.boardingPoint).toBeNull();
+      expect(schedule.departureCity).toBeNull();
     }
   });
 });
@@ -253,15 +257,17 @@ describe("datos editoriales y secciones", () => {
     expect(text).not.toContain("2025 y 2026");
   });
 
-  it("no publica agencias ni direcciones pendientes", () => {
+  it("publica las cinco agencias confirmadas con dirección y teléfono", () => {
     const text = mountApp().text();
-    for (const agency of agencies) {
-      expect(["pending", "unverified"]).toContain(agency.editorial.state);
+    expect(agencies).toHaveLength(5);
+    for (const agency of agencies) expect(agency.editorial.state).toBe("confirmed");
+    for (const agency of agencies) expect(text).toContain(agency.name);
+    for (const visible of ["2330", "998 142 020", "953 753 148", "953 753 576", "No identificado"]) {
+      expect(text).toContain(visible);
     }
-    for (const forbidden of ["2328", "2330", "Nicolás Arriola", "Luna Pizarro", "Manco Cápac"]) {
-      expect(text).not.toContain(forbidden);
-    }
-    expect(text).toContain("Agencias en confirmación");
+    expect(text).not.toContain("2328");
+    expect((text.match(/No identificado/g) ?? [])).toHaveLength(2);
+    expect(text).not.toContain("Agencias en confirmación");
   });
 
   it("mantiene respuestas informativas sin inventar políticas", () => {
@@ -290,7 +296,7 @@ describe("datos editoriales y secciones", () => {
     expect(html).not.toContain("disponibilidad de asientos");
   });
 
-  it("muestra la CTA de WhatsApp real en cabecera y portada", () => {
+  it("muestra la CTA de WhatsApp real en cabecera, portada, flotante y pie", () => {
     const wrapper = mountApp();
     const headerCta = wrapper.get(".header-cta");
     const heroCta = wrapper.get(".hero-copy .button-primary");
@@ -302,6 +308,9 @@ describe("datos editoriales y secciones", () => {
     }
     const contactLink = wrapper.get(".contact-whatsapp");
     expect(contactLink.attributes("href")).toContain("https://wa.me/51959309809");
+    const floating = wrapper.get(".floating-whatsapp");
+    expect(floating.attributes("href")).toContain("https://wa.me/51959309809");
+    expect(floating.attributes("aria-label")).toBe("Consultar por WhatsApp");
     const footerWhatsApp = wrapper.findAll(".footer-link").find((link) => link.text().includes("WhatsApp"));
     expect(footerWhatsApp.attributes("href")).toContain("https://wa.me/51959309809");
   });
@@ -321,6 +330,22 @@ describe("App y accesibilidad básica", () => {
     for (const anchor of Object.keys(ANCHOR_SECTIONS)) {
       expect(wrapper.find(anchor).exists()).toBe(true);
     }
+  });
+
+  it("usa la foto del bus como fondo del hero y títulos de sección sin eyebrows", () => {
+    const wrapper = mountApp();
+    expect(wrapper.get(".hero-section").classes()).toContain("hero-has-image");
+    expect(wrapper.get(".hero-background").attributes("src")).toContain("bus-carretera");
+    expect(wrapper.find(".hero-scrim").exists()).toBe(true);
+    expect(wrapper.find(".eyebrow").exists()).toBe(false);
+    expect(wrapper.findAll("h2").map((heading) => heading.text())).toEqual([
+      "Destinos",
+      "Servicios",
+      "Agencias",
+      "Nosotros",
+      "Preguntas frecuentes",
+      "Contacto",
+    ]);
   });
 
   it("abre y cierra el menú móvil con clic y Escape", async () => {
@@ -396,6 +421,15 @@ describe("activos y SEO", () => {
     expect(fonts).not.toContain("fonts.googleapis.com");
     expect(theme).toContain('--font-display: "Libron"');
     expect(theme).toContain("--font-sans: ui-sans-serif");
+  });
+
+  it("aplica aero-glass a los botones y usa fondo fotográfico en el hero", () => {
+    const css = readFileSync(join(process.cwd(), "src/styles/components.css"), "utf8");
+    expect(css).toContain(".button {");
+    expect(css).toContain("backdrop-filter: blur(16px)");
+    expect(css).toContain(".contact-whatsapp");
+    expect(css).toContain(".floating-whatsapp");
+    expect(css).toContain(".hero-background");
   });
 
   it("no hardcodea hex en componentes Vue", () => {

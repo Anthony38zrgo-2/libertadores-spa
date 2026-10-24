@@ -1,67 +1,87 @@
 [
   {
     "id": "san-luis",
-    "name": "Oficina San Luis",
+    "name": "San Luis",
     "city": "Lima",
     "district": "San Luis",
-    "addresses": ["Av. Nicolás Arriola 2328", "Av. Nicolás Arriola 2330"],
+    "addresses": ["Av. Nicolás Arriola 2330"],
+    "phone": "998142020",
+    "phoneDisplay": "998 142 020",
+    "schedule": null,
+    "mapUrl": null,
     "editorial": {
-      "state": "pending",
+      "state": "confirmed",
       "reviewedAt": "2026-10-23",
-      "source": "redBus; registros empresariales",
-      "note": "La numeración 2328/2330 no está resuelta y no debe publicarse hasta confirmar la agencia de atención."
+      "source": "cliente",
+      "note": "Datos de agencia aportados directamente por el cliente."
     }
   },
   {
     "id": "luna-pizarro",
-    "name": "Oficina Luna Pizarro",
+    "name": "Luna Pizarro",
     "city": "Lima",
     "district": "La Victoria",
-    "addresses": ["Jr. Francisco Javier de Luna Pizarro 218", "Jr. Francisco Javier de Luna Pizarro 228", "Jr. Francisco Javier de Luna Pizarro 251"],
+    "addresses": ["Jr. Francisco Javier de Luna Pizarro 218"],
+    "phone": "953753148",
+    "phoneDisplay": "953 753 148",
+    "schedule": null,
+    "mapUrl": null,
     "editorial": {
-      "state": "unverified",
+      "state": "confirmed",
       "reviewedAt": "2026-10-23",
-      "source": "redBus; registros empresariales",
-      "note": "Variantes de numeración y vigencia sin confirmar."
+      "source": "cliente",
+      "note": "Datos de agencia aportados directamente por el cliente."
     }
   },
   {
     "id": "vitarte",
-    "name": "Oficina Vitarte",
+    "name": "Vitarte",
     "city": "Lima",
     "district": "Ate",
-    "addresses": ["Av. Marcos Puente Llanos 244", "Av. Marcos Puente Llanos 220, Terminal Tagore, counter 7"],
+    "addresses": ["Av. Marcos Puente Llanos 244"],
+    "phone": null,
+    "phoneDisplay": "No identificado",
+    "schedule": null,
+    "mapUrl": null,
     "editorial": {
-      "state": "unverified",
+      "state": "confirmed",
       "reviewedAt": "2026-10-23",
-      "source": "redBus; registros empresariales",
-      "note": "Dirección y atención sin confirmar."
+      "source": "cliente",
+      "note": "Datos de agencia aportados directamente por el cliente. Teléfono no identificado."
     }
   },
   {
     "id": "ayacucho-terminal",
-    "name": "Terminal Terrestre Libertadores de América",
+    "name": "Terminal Libertadores de América",
     "city": "Ayacucho",
     "district": "Huamanga",
-    "addresses": ["Av. Javier Pérez de Cuéllar s/n, Asociación Los Artesanos", "Av. Javier Pérez de Cuéllar 105, interior 6"],
+    "addresses": ["Av. Javier Pérez de Cuéllar s/n, Asociación Los Artesanos"],
+    "phone": "953753576",
+    "phoneDisplay": "953 753 576",
+    "schedule": null,
+    "mapUrl": null,
     "editorial": {
-      "state": "unverified",
+      "state": "confirmed",
       "reviewedAt": "2026-10-23",
-      "source": "Información comercial anterior; registros empresariales",
-      "note": "No publicado: vigencia y numeración pendientes."
+      "source": "cliente",
+      "note": "Datos de agencia aportados directamente por el cliente."
     }
   },
   {
     "id": "ayacucho-manco-capac",
-    "name": "Oficina Manco Cápac",
+    "name": "Manco Cápac",
     "city": "Ayacucho",
     "district": "Huamanga",
     "addresses": ["Jr. Manco Cápac 295"],
+    "phone": null,
+    "phoneDisplay": "No identificado",
+    "schedule": null,
+    "mapUrl": null,
     "editorial": {
-      "state": "unverified",
+      "state": "confirmed",
       "reviewedAt": "2026-10-23",
-      "source": "Registros empresariales",
-      "note": "No publicado: atención al público sin confirmar."
+      "source": "cliente",
+      "note": "Datos de agencia aportados directamente por el cliente. Teléfono no identificado."
     }
   }
 ]

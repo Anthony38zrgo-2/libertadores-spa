@@ -1,6 +1,6 @@
 # Transportes Libertadores — SPA informativa
 
-Sitio de una página orientado al pasajero: portada, destinos, servicios, agencias, nosotros, preguntas frecuentes y contacto. Construido con **Vue 3 + Vite + Tailwind CSS 4**, titulares **Libron Bold**, interfaz sans-serif del sistema e iconos **Material Symbols Outlined** locales.
+Sitio de una página orientado al pasajero: portada con fotografía de fondo, destinos, servicios, agencias, nosotros, preguntas frecuentes y contacto. Construido con **Vue 3 + Vite + Tailwind CSS 4**, titulares **Libron Bold**, interfaz sans-serif del sistema e iconos **Material Symbols Outlined** locales.
 
 La versión pública es informativa. **No vende pasajes**, no simula búsqueda ni disponibilidad y solo publica turnos y canales confirmados por el cliente. La consulta se realiza por **WhatsApp: +51 959 309 809**.
 
@@ -51,7 +51,7 @@ public/og/                    Imagen Open Graph estable
 1. **Marca, SEO, tema, navegación y secciones:** `src/config/site.config.js`.
 2. **Ruta y turnos:** `src/data/routes.json` y `src/data/schedules.json`. Los turnos se muestran como `9:15 p. m.` y `10:00 p. m.`; `departureCity`, `operatingDays`, `boardingPoint` y `direction` deben permanecer `null` hasta confirmación.
 3. **Servicios:** `src/data/services.json`. Solo se publican `status: "verified"` y `visible: true`.
-4. **Agencias:** `src/data/agencies.json`. Solo se renderizan con `editorial.state: "confirmed"` y dirección confirmada; el resto permanece fuera de la página.
+4. **Agencias:** `src/data/agencies.json`. Las cinco agencias aportadas por el cliente están confirmadas; cada tarjeta muestra ciudad/distrito, agencia, dirección y teléfono. Los teléfonos no identificados se muestran como texto, no como enlace.
 5. **FAQ:** `src/data/faq.json`. Las respuestas con `status: "pending"` solo remiten a consultar condiciones por WhatsApp; no afirmes políticas.
 6. **WhatsApp:** `site.contact.whatsapp`, `whatsappDisplay` y `whatsappMessage`. No escribas URLs `wa.me` en componentes; usa `buildWhatsAppUrl`.
 7. **Imágenes:** reemplazar el WebP en `src/assets/images/` y actualizar dimensiones/alt en `src/data/images.js`. Los originales permanecen en `images/`.
@@ -61,7 +61,9 @@ public/og/                    Imagen Open Graph estable
 
 ## Diseño
 
-- Flat design: colores sólidos, sin degradados, sombras, relieves, glassmorphism ni animaciones ornamentales.
+- Base plana: contenido en bloques sólidos y líneas finas, sin animaciones ornamentales.
+- Hero con la fotografía del bus a sangre, scrim grafito y texto blanco para asegurar contraste.
+- Botones y CTA con acabado aero-glass: fondo translúcido, `backdrop-filter`, brillo interior y sombra suave. Incluye el botón flotante de WhatsApp.
 - Titulares en Libron Bold; interfaz y cuerpo en sans-serif del sistema. El logotipo se muestra sobre una placa blanca.
 - Paleta custom: grafito `#25282C`, blanco humo `#F6F7F7`, gris plata `#DADDE0`, rojo `#D71920` y naranja `#F26322`.
 - Tokens en `src/styles/theme.css`; los componentes no contienen hex. El foco usa rojo en fondos claros y naranja en cabecera/pie.
@@ -75,7 +77,7 @@ public/og/                    Imagen Open Graph estable
 
 - Días de operación, sentido, ciudad de salida, punto de embarque y tarifas de los turnos.
 - Razón social y RUC responsables; no mezclar autorizaciones de titulares distintos.
-- Agencias abiertas, direcciones y horarios confirmados.
+- Horarios de atención de las agencias y teléfonos de Vitarte y Manco Cápac.
 - Administración del perfil de Facebook enlazado.
 - Política de privacidad y Libro de Reclamaciones funcionales.
 - Derechos de uso de las fotografías y textos comerciales definitivos.

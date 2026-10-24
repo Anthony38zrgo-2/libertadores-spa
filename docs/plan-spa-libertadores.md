@@ -2,7 +2,7 @@
 
 Fecha: 23 de octubre de 2026. Estado: primera versión implementada y verificada localmente; publicación pendiente de las confirmaciones de contenido.
 
-> **Actualización 2026-10-23:** el alcance vigente es la SPA orientada al pasajero con WhatsApp confirmado, turnos informados y secciones de destinos, servicios, agencias, nosotros, preguntas frecuentes y contacto. Las referencias históricas a “tres bloques” o a la ausencia de WhatsApp quedan superadas por esta ampliación.
+> **Actualización 2026-10-23:** el alcance vigente es la SPA orientada al pasajero con WhatsApp confirmado, turnos informados, cinco agencias confirmadas, secciones de destinos, servicios, agencias, nosotros, preguntas frecuentes y contacto, portada con fotografía de fondo y botones aero-glass. Las referencias históricas a “tres bloques”, a la ausencia de WhatsApp o al diseño íntegramente plano quedan superadas por esta ampliación.
 
 ## Objetivo y alcance
 
@@ -112,6 +112,6 @@ La SPA evolucionó a un sitio orientado al pasajero con portada, destinos, servi
 
 El cliente confirmó el WhatsApp +51 959 309 809 y los turnos 21:15 y 22:00 (`America/Lima`), que se muestran como 9:15 p. m. y 10:00 p. m. No se publican días, sentido, ciudad de salida, terminal, tarifas ni disponibilidad porque siguen pendientes. La compra de pasajes permanece desactivada.
 
-Solo se publica el servicio verificado de transporte interprovincial de pasajeros. Las agencias pendientes no se renderizan; la sección informa que están en confirmación. La ubicación se muestra como referencia de distrito, sin mapa genérico. La política de privacidad, el Libro de Reclamaciones y la razón social/RUC quedan como bloqueadores de publicación.
+Solo se publica el servicio verificado de transporte interprovincial de pasajeros. Las cinco agencias aportadas por el cliente se publican con ciudad/distrito, agencia, dirección y teléfono; los teléfonos no identificados se muestran como texto. La portada usa la fotografía del bus como fondo con texto blanco y los botones/CTA tienen acabado aero-glass. La ubicación de contacto sigue siendo una referencia de distrito, sin mapa genérico. La política de privacidad, el Libro de Reclamaciones y la razón social/RUC quedan como bloqueadores de publicación.
 
-Verificado con validación de configuración, ESLint, 37 pruebas, build de producción y revisión en navegador a 320, 375, 768, 1024 y 1440 px. Detalle de activos en `docs/PROCEDENCIA-ACTIVOS.md`.
+Verificado con validación de configuración, ESLint, 39 pruebas, build de producción y revisión en navegador a 320, 375, 768, 1024 y 1440 px. Detalle de activos en `docs/PROCEDENCIA-ACTIVOS.md`.

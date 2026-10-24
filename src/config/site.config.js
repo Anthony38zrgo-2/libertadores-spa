@@ -95,7 +95,6 @@ export const siteConfig = {
       order: 10,
       variant: "split",
       props: {
-        eyebrow: "Transporte interprovincial · Perú",
         title: "Viaja por tierra con el confort del aire",
         description:
           "Ruta documentada Lima–Ayacucho. Consulta los turnos informados y confirma por WhatsApp los días, la ciudad de salida y la disponibilidad.",
@@ -125,16 +124,15 @@ export const siteConfig = {
       order: 20,
       variant: "grid",
       props: {
-        eyebrow: "Destinos",
-        title: "Lima–Ayacucho, la ruta documentada.",
+        title: "Destinos",
         description:
-          "Consulta los turnos informados. La frecuencia, la ciudad de salida y la disponibilidad se confirman por WhatsApp.",
+          "Ruta Lima–Ayacucho, turnos informados y consulta directa por WhatsApp.",
         ctaLabel: "Consultar por WhatsApp",
         routeKicker: "Ruta documentada",
         routeNote:
-          "Ruta documentada. La frecuencia, el sentido y la ciudad de salida se confirman por WhatsApp.",
+          "La frecuencia, el sentido y la ciudad de salida se confirman por WhatsApp.",
         scheduleLabel: "Turnos informados",
-        scheduleNote: "Consulta por WhatsApp los días, ciudad de salida y disponibilidad.",
+        scheduleNote: "",
         emptySchedulesMessage: "No hay turnos informados para publicar.",
         emptyMessage: "La información de esta ruta está en revisión editorial.",
       },
@@ -145,11 +143,9 @@ export const siteConfig = {
       order: 30,
       variant: "compact",
       props: {
-        eyebrow: "Servicios",
-        title: "Transporte interprovincial, con información clara.",
-        description:
-          "Transporte interprovincial de pasajeros en la ruta documentada. Las condiciones específicas se consultan por WhatsApp.",
-        note: "Para condiciones de equipaje, cambios o requisitos, consulta los canales de atención.",
+        title: "Servicios",
+        description: "Transporte interprovincial de pasajeros y condiciones de viaje.",
+        note: "",
       },
     },
     {
@@ -158,14 +154,8 @@ export const siteConfig = {
       order: 40,
       variant: "list",
       props: {
-        eyebrow: "Agencias",
-        title: "Puntos de atención.",
-        description:
-          "Publicamos una agencia solo cuando su atención y dirección están confirmadas.",
-        emptyTitle: "Agencias en confirmación",
-        emptyMessage: "Todavía no hay agencias con atención confirmada para publicar.",
-        emptyNote:
-          "Consulta la dirección exacta y los puntos de embarque por WhatsApp.",
+        title: "Agencias",
+        description: "Ciudades, agencias, direcciones y teléfonos de atención.",
         ctaLabel: "Consultar por WhatsApp",
       },
     },
@@ -175,10 +165,9 @@ export const siteConfig = {
       order: 50,
       variant: "split",
       props: {
-        eyebrow: "Nosotros",
-        title: "Transporte interprovincial con atención directa.",
+        title: "Nosotros",
         description:
-          "Transportes Libertadores se dedica al transporte interprovincial de pasajeros. La ruta documentada es Lima–Ayacucho. La atención se centraliza en San Luis, Lima.",
+          "Transportes Libertadores se dedica al transporte interprovincial de pasajeros. La atención se centraliza en San Luis, Lima.",
         visual: {
           type: "image",
           key: "equipo-agencia",
@@ -193,10 +182,8 @@ export const siteConfig = {
       order: 60,
       variant: "list",
       props: {
-        eyebrow: "Preguntas frecuentes",
-        title: "Lo que conviene saber antes de viajar.",
-        description:
-          "Respuestas informativas. Las condiciones de cada servicio se confirman por WhatsApp.",
+        title: "Preguntas frecuentes",
+        description: "Respuestas informativas sobre compra, horarios, equipaje y embarque.",
       },
     },
     {
@@ -205,15 +192,13 @@ export const siteConfig = {
       order: 70,
       variant: "split",
       props: {
-        eyebrow: "Contacto",
-        title: "Consulta turnos, días y disponibilidad.",
+        title: "Contacto",
         description:
-          "La atención es por WhatsApp. La venta de pasajes no está disponible en línea.",
-        note: "La dirección exacta y los puntos de embarque se confirman por WhatsApp.",
-        localityNote:
-          "San Luis, Lima es una referencia de distrito; la dirección exacta se confirma por WhatsApp.",
+          "Consultas por WhatsApp. La venta de pasajes no está disponible en línea.",
+        note: "",
+        localityNote: "Dirección exacta por confirmar.",
         cardLabel: "Consulta directa",
-        cardNote: "Turnos, días, punto de salida y disponibilidad.",
+        cardNote: "Turnos, días y disponibilidad.",
         secondaryTitle: "Otros canales",
       },
     },

@@ -51,6 +51,11 @@ if (visibleServices.length !== 1) {
   errors.push("services: debe publicarse exactamente una prestación verificada y visible");
 }
 
+const confirmedAgencies = agencies.filter((agency) => agency.editorial?.state === "confirmed");
+if (confirmedAgencies.length === 0) {
+  errors.push("agencies: falta al menos una agencia confirmada para publicar");
+}
+
 for (const agency of agencies) {
   if (!agency.id || !agency.name) errors.push("agencies: id y name requeridos");
   if (!AGENCY_STATES.has(agency.editorial?.state)) {
@@ -100,5 +105,5 @@ if (uniqueErrors.length) {
 }
 
 console.log(
-  `✓ Config válida · ${routes.length} ruta(s) · ${visibleServices.length} servicio(s) visible(s) · ${confirmedSchedules.length} turno(s) · ${agencies.length} agencia(s) no publicadas · ${faq.length} FAQ`,
+  `✓ Config válida · ${routes.length} ruta(s) · ${visibleServices.length} servicio(s) visible(s) · ${confirmedSchedules.length} turno(s) · ${confirmedAgencies.length} agencia(s) confirmada(s) · ${faq.length} FAQ`,
 );
